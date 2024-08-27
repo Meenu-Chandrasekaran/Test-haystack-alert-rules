@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Form Example</title>
+  <style>
+    /* Simple styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Dynamic Input Form</h2>
+  <form id="dynamicForm">
+    <!-- User's Choice -->
+    <label for="userChoice">Would you like to provide more details?</label>
+    <select id="userChoice" name="userChoice" onchange="toggleFields()">
+      <option value="no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+
+    <!-- Fields that will be shown/hidden based on the user's choice -->
+    <div id="additionalFields" class="hidden">
+      <label for="extraInput1">Additional Detail 1:</label>
+      <input type="text" id="extraInput1" name="extraInput1">
+      
+      <label for="extraInput2">Additional Detail 2:</label>
+      <input type="text" id="extraInput2" name="extraInput2">
+    </div>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    // JavaScript function to toggle visibility of additional fields
+    function toggleFields() {
+      var userChoice = document.getElementById("userChoice").value;
+      var additionalFields = document.getElementById("additionalFields");
+
+      // Show fields if "Yes" is selected, otherwise hide them
+      if (userChoice === "yes") {
+        additionalFields.classList.remove("hidden");
+      } else {
+        additionalFields.classList.add("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>
